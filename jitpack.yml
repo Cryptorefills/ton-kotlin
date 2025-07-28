@@ -1,0 +1,6 @@
+jdk:
+  - openjdk11
+
+install:
+  - ./gradlew clean assemble publishToMavenLocal -x signJvmPublication
+
