@@ -3,5 +3,5 @@ jdk:
   - openjdk11
 
 install:
-  - ./gradlew clean assemble publishToMavenLocal -x signKotlinMultiplatformPublication -x signJvmPublication -x signMetadataPublication
+  - ./gradlew clean assemble publishToMavenLocal -x signKotlinMultiplatformPublication -x signJvmPublication
 
