@@ -14,10 +14,17 @@ public interface CellContext {
 
     public companion object {
         public val EMPTY: CellContext = object : CellContext {
+
             override fun loadCell(cell: Cell): DataCell {
+             // special‑case a truly empty cell (0 bits, 0 refs)
+                if (cell.bits.isEmpty() && cell.refs.isEmpty()) {
+                    return CellBuilder
+                        .createCell { /* no bits, no refs */ }
+                        .build() as DataCell
+                }
                 if (cell is DataCell) return cell
                 if (cell is VirtualCell && cell.cell is DataCell) return cell.cell
-                else throw IllegalArgumentException("Can't load ${cell::class} $cell")
+                throw IllegalArgumentException("Can't load ${cell::class} $cell")
             }
 
             override fun finalizeCell(builder: CellBuilder): Cell {
