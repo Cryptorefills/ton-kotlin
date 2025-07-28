@@ -1,0 +1,7 @@
+# jitpack.yml (at the repo root)
+jdk:
+  - openjdk11
+
+install:
+  - ./gradlew clean assemble publishToMavenLocal -x signKotlinMultiplatformPublication -x signJvmPublication -x signJvmAndroidPublication -x signMetadataPublication
+
