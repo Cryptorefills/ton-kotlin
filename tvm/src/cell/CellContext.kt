@@ -20,7 +20,7 @@ public interface CellContext {
                 if (cell.bits.isEmpty() && cell.refs.isEmpty()) {
                     return CellBuilder
                         .createCell { /* no bits, no refs */ }
-                        .build() as DataCell
+                         as DataCell
                 }
                 if (cell is DataCell) return cell
                 if (cell is VirtualCell && cell.cell is DataCell) return cell.cell
